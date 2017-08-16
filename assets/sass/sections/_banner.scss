@@ -1,0 +1,187 @@
+/*--------------------------
+   Banner Section
+  --------------------------*/
+
+
+/**--- slider slides ----**/
+.slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+
+/**--- banner section ----**/
+.banner-section {
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+
+	.slide-wrapper {
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+	  width: 100%;
+	  height: 100%;
+	  background-color: #000;
+	  position: relative;
+	  z-index: 2;
+	}
+
+	.slide {
+		width: 100%;
+		height: 100%;
+		display: none;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-size: cover ;
+		&.one {
+			background-image: url(../images/banner/banner-a.jpg);
+		}
+
+		&.two {
+			background-image: url(../images/banner/banner-b.jpg);
+		}
+
+		&.three{
+			background-image: url(../images/banner/banner-c.jpg);
+			
+		}
+
+
+	}	
+
+}
+
+.banner-text,
+.slide-text  { 
+	position: absolute;
+}
+
+.banner-text {
+	width: 364px;
+	height: auto;
+	left: 0;
+	opacity: 0 ;
+	bottom: 156px;
+	transition: 1.2s ease ;
+	-moz-transition: 1.2s ease ;
+	-webkit-transition: 1.2s ease ;
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+
+/**--- banner text ----**/
+.slide-text {
+	width: 100%;
+	max-width: 663px;
+	height: auto;
+	bottom: -200px;
+	left: 0;
+	transition: 1s ease ;
+	-moz-transition: 1s ease ;
+	-webkit-transition: 1s ease ;
+	.logo {
+		width: 120px;
+		float: left;
+		background-color: #000;
+		text-align: center;
+		padding: 17px 0 18px;
+		img {
+			max-width: 100%;
+		}
+	}
+	.text {
+		width: calc(100% - 120px);
+		float: right;
+		background: rgba(0,0,0,0.4);
+		padding: 32px 40px 31px 73px;
+		p {
+			color: #fff;
+			font-size: 16px;
+			font-weight: 300;
+			text-align: left;
+		}
+	}
+}
+
+
+/**--- pagination ----**/
+ul.pagination {  
+	position: absolute;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80px;
+ 	z-index: 3;
+	transition: 0.5s ease ;
+	-moz-transition: 0.5s ease ;
+	-webkit-transition: 0.5s ease ;
+	li {
+		width: 10px;
+		height: 30px;
+		display: block;
+		float: left;
+		background-color: transparent;
+		margin: 0 5px;
+		position: relative;
+		cursor: pointer;
+		&:before {
+			content:'';
+			display: block;
+			height: 18px;
+			width: 100%;
+			bottom: 0;
+			position: absolute;
+			background-color: #fff;
+			transition: 0.3s ease ;
+			-moz-transition: 0.3s ease ;
+			-webkit-transition: 0.3s ease ;
+		}
+		&.selected {
+			&:before { 
+				background-color: #f4bc1c;
+				height: 30px;
+			}
+		}
+		&:hover {
+			&:before { 
+				background-color: #ffff;
+				height: 30px;
+				transition: 0.5s ease ;
+				-moz-transition: 0.5s ease ;
+				-webkit-transition: 0.5s ease ;
+			}	
+		}
+	}
+}
+
+
+/**--- active banner ----**/
+.banner-section { 
+	&.sliderActive { 
+		ul.pagination {  
+			bottom: 122px;
+		}
+  	}
+}
+
+/**--- active slide ----**/
+.active-slide {
+	.slide-text {
+		bottom: 0;
+	}
+
+	.banner-text {
+		left: 40px;
+		opacity: 1;
+	}
+}
